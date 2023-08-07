@@ -1,7 +1,15 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import Swal from 'sweetalert2'
 
 
 const Login = () => {
+
+    const {signIn}=useContext(AuthContext);
+    const navigate=useNavigate();
+    const location=useLocation();
+    const from=location.state?.from?.pathname || "/";
 
     const handleLogIn=event=>{
         event.preventDefault();
@@ -11,6 +19,22 @@ const Login = () => {
 
         
         console.log(email,password);
+
+        signIn(email,password)
+        .then(result=>{
+            const user=result.user;
+            console.log(user);
+            Swal.fire({
+                title: 'User Login Is Successful',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              });
+              navigate(from, {replace: true});
+        })
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -36,10 +60,6 @@ const Login = () => {
                         </div>
                         <div className="form-control mt-6">
                             <input className="btn btn-primary" type="submit" value="Login" />
-                        </div>
-                        <p className="text-center mt-2">or</p>
-                        <div className="form-control mt-6">
-                            <input  className="btn btn-primary" type="submit" value="Google" />
                         </div>
                         <p className="my-4 text-center">New to MindConnect? <Link className="font-bold text-orange-500" to='/signup'>Sign Up</Link> </p>
                 

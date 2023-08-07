@@ -27,6 +27,7 @@ const Navbar = () => {
                         <li><Link to='/'>Home</Link></li>
                         
                             <li><a>About Us</a></li>
+                            {user && <li><Link to='/selectsymptoms'>Select Symptoms</Link></li>}
                         </ul>
                     </div>
                     <a className="btn btn-ghost normal-case text-xl">MindConnect</a>
@@ -36,6 +37,7 @@ const Navbar = () => {
                     <li><Link to='/'>Home</Link></li>
                         
                         <li><a>About Us</a></li>
+                        {user && <li><Link to='/selectsymptoms'>Select Symptoms</Link></li>}
                     </ul>
                 </div>
                 <div className="navbar-end">
