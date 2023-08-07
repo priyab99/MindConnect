@@ -1,8 +1,6 @@
-# React + Vite
+# MindConnect
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Online Mental Health Service for Students.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+   - This project aims to address the pressing need for accessible and convenient mental health support specifically tailored to students.
+   - Mental health is a critical aspect of overall well-being, and we believe that students deserve easy access to professional support during their educational journey.
