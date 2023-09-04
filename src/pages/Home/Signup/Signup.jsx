@@ -1,18 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import Swal from 'sweetalert2'
 
 
 const Signup = () => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
         getValues
     } = useForm();
 
     const {createUser}=useContext(AuthContext)
+    const navigate=useNavigate();
 
     const onSubmit=data=>{
 
@@ -21,8 +24,39 @@ const Signup = () => {
         .then(result=>{
             const loggedUser=result.user;
             console.log(loggedUser);
-        })
-    }
+            const saveUser = { name: data.name, email: data.email };
+
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(saveUser),
+            })
+              .then((res) => res.json())
+              .then((response) => {
+                if (response.insertedId) {
+                    Swal.fire({
+                        title: 'User Sign Up Is Successful',
+                        showClass: {
+                          popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                          popup: 'animate__animated animate__fadeOutUp'
+                        }
+                      });
+                }
+              })
+              .catch((error) => console.error("Error adding user", error));
+    
+            console.log("User data has been saved");
+            reset();
+            navigate("/");
+          })
+          .catch((error) => console.error("Error registering user", error));
+
+        
+    };
 
     const validatePassword = (value) => {
         // Password must be at least 6 characters
@@ -115,18 +149,7 @@ const Signup = () => {
                                 )}
 
                             </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Photo URL</span>
-                                </label>
-                                <input
-                                    type="text"
-                                    {...register("photoURL")}
-
-                                    placeholder="Photo URL"
-                                    className="input input-bordered"
-                                />
-                            </div>
+                           
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Sign Up" />
                             </div>
