@@ -7,7 +7,7 @@ import Login from "../pages/Home/Login/Login";
 import Signup from "../pages/Home/Signup/Signup";
 import Symptoms from "../pages/Symptoms/Symptoms";
 import Dashboard from "../Layout/Dashboard";
-import MySession from "../pages/Dashboard/MySession/MySession";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 
  export const router = createBrowserRouter([
     {
@@ -37,8 +37,8 @@ import MySession from "../pages/Dashboard/MySession/MySession";
       element:<Dashboard></Dashboard>,
       children: [
         {
-          path:'mysessions',
-          element:<MySession></MySession>
+          path:'allusers',
+          element:<AllUsers></AllUsers>
        },
       ]
     }

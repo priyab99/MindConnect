@@ -1,7 +1,11 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 
 const Dashboard = () => {
+
+    //TODo
+    const isAdmin=true;
+    const isTherapist=true;
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -16,9 +20,41 @@ const Dashboard = () => {
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                     
-                        <li><a>Manage Users</a></li>
-                        <li><a>Manage Therapists</a></li>
-                        <li><a>Approve Appointments</a></li>
+                    {isAdmin ? (
+              <>
+                <li>
+                  <Link to="/dashboard/managetherapist"> Manage Therapists </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/allusers">All Users</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/approvesessions">Approve Sessions</Link>
+                </li>
+              </>
+            ): isTherapist ? (
+                <>
+                  <li>
+                      Add Prfile
+                  </li>
+                  <li>
+                    My Session
+                  </li>
+                </>
+              )  : (
+              <>
+                <li>
+                  My Session
+                </li>
+                <li>
+                  My schedule
+                </li>
+                <li>
+                  Pending work
+                </li>
+              </>
+            )}
+
 
                     </ul>
 
