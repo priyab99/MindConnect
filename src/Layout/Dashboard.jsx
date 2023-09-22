@@ -1,11 +1,12 @@
 import { Link, Outlet } from "react-router-dom";
+import useAdmin from "../hooks/useAdmin";
+import useTherapist from "../hooks/useTherapist";
 
 
 const Dashboard = () => {
 
-    //TODo
-    const isAdmin=true;
-    const isTherapist=true;
+   const [isAdmin]=useAdmin();
+   const [isTherapist]=useTherapist();
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -22,11 +23,9 @@ const Dashboard = () => {
                     
                     {isAdmin ? (
               <>
+              
                 <li>
-                  <Link to="/dashboard/managetherapist"> Manage Therapists </Link>
-                </li>
-                <li>
-                  <Link to="/dashboard/allusers">All Users</Link>
+                  <Link to="/dashboard/allusers">Manage Users</Link>
                 </li>
                 <li>
                   <Link to="/dashboard/approvesessions">Approve Sessions</Link>

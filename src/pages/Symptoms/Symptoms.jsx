@@ -3,9 +3,9 @@ import { useState } from 'react';
 
 const Symptoms = () => {
     const [options] = useState([
-        'Anxiety', 'Depression', 'Phobias', 'Low Self-Esteem', 'Self Harm',
-        'Loss and Grief', 'Stress', 'Mood Swings', 'Insomnia',
-        'Body Image Issues', 'Panic Attacks'
+        'Anxiety', 'Depression',  'Low Self-Esteem', 'Self Harm',
+        'Loss and Grief', 
+        'Body Image Issues'
     ]);
 
     const [selectedSymptoms, setSelectedSymptoms] = useState([]);
@@ -30,7 +30,7 @@ const Symptoms = () => {
             <form className="row g-3" onSubmit={handleSubmit}>
 
                 <div className="col-md-5">
-                    <label className="form-label">Select Symptoms</label>
+                    <label className="form-label">Select at least 3 Symptoms</label>
 
                     <div className="text-dark">
                         <Multiselect

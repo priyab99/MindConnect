@@ -23,7 +23,7 @@ const AllUsers = () => {
     }
 
     const handleMakeInstructor = (user) => {
-        fetch(`http://localhost:5000/users/therapist${user._id}`, {
+        fetch(`http://localhost:5000/users/therapist/${user._id}`, {
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -61,7 +61,7 @@ const AllUsers = () => {
                                 <td><button className="btn btn-primary"        onClick={() => handleMakeAdmin(user)}
                                         disabled={user.role === 'admin'}>Make Admin</button></td>
                                 <td><button className="btn btn-primary " onClick={() => handleMakeInstructor(user)}
-                                        disabled={user.role === 'Therapist'}>Make Therapist</button></td>
+                                        disabled={user.role === 'therapist'}>Make Therapist</button></td>
                             </tr>)
                         }
                        
