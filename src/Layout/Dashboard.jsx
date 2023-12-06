@@ -34,10 +34,10 @@ const Dashboard = () => {
             ): isTherapist ? (
                 <>
                   <li>
-                      Add Prfile
+                      My Session
                   </li>
                   <li>
-                    My Session
+                    Student Records
                   </li>
                 </>
               )  : (

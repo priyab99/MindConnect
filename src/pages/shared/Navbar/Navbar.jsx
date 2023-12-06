@@ -27,7 +27,7 @@ const Navbar = () => {
                             <li><Link to='/'>Home</Link></li>
 
                             <li><a>About Us</a></li>
-                            {user && <li><Link to='/selectsymptoms'>Select Symptoms</Link></li>
+                            {user && <li><Link to='/therapists'>Therapists</Link></li>
 
                             }
                             {user && (
@@ -35,6 +35,7 @@ const Navbar = () => {
                                     <Link to="/dashboard">Dashboard</Link>
                                 </li>
                             )}
+                              <li><a>Contact Us</a></li>
 
 
                         </ul>
@@ -46,12 +47,13 @@ const Navbar = () => {
                         <li><Link to='/'>Home</Link></li>
 
                         <li><a>About Us</a></li>
-                        {user && <li><Link to='/selectsymptoms'>Select Symptoms</Link></li>}
+                        {user && <li><Link to='/therapists'>Therapists</Link></li>}
                         {user && (
                                 <li>
                                     <Link to="/dashboard">Dashboard</Link>
                                 </li>
                             )}
+                               <li><a>Contact Us</a></li>
                         
                     </ul>
                 </div>
