@@ -1,4 +1,5 @@
 import  { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Therapists = () => {
     const [therapists, setTherapists] = useState([]);
@@ -35,11 +36,8 @@ const Therapists = () => {
                             <figure><img src={therapist.Image} alt={therapist.Name} /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{therapist.Name}</h2>
-                                <p>Specialty: {therapist.Specialty}</p>
-                                <p>Qualification: {therapist.Degree}</p>
-                                <p>Rating: {therapist.Rating}</p>
                                 <div className="card-actions justify-end">
-                                    <button className="btn btn-primary">Make Appointment</button>
+                                   <Link to={`/therapists/${therapist._id}`} > <button className="btn btn-primary">View Profile</button></Link>
                                 </div>
                             </div>
                         </div>

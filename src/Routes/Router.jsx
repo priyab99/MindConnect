@@ -8,6 +8,8 @@ import Signup from "../pages/Home/Signup/Signup";
 import Dashboard from "../Layout/Dashboard";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import Therapists from "../pages/Therapists/Therapists"
+import TherapistDetails from "../pages/Therapists/TherapistDetails";
+import BookAppointmentForm from "../pages/Therapists/BookAppointmentForm";
 
  export const router = createBrowserRouter([
     {
@@ -30,6 +32,15 @@ import Therapists from "../pages/Therapists/Therapists"
           path: '/therapists',
           element:<Therapists></Therapists>,
         },
+        {
+          path: '/therapists/:therapistsId',
+          element:<TherapistDetails></TherapistDetails>,
+          loader:()=>fetch("http://localhost:5000/therapists")
+        },
+        {
+          path: '/bookappointment',
+          element: <BookAppointmentForm></BookAppointmentForm>
+        }
     
       ]
     },
