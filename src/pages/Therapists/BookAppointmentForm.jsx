@@ -1,6 +1,9 @@
-import { useState } from "react";
+import  { useState} from "react";
 
-const BookAppointmentForm = () => {
+
+const BookAppointmentForm = ({ therapistId }) => {
+ // const { user } = useContext(AuthContext);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -9,86 +12,97 @@ const BookAppointmentForm = () => {
   });
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle the form submission here, you can send the data to your backend or perform any necessary actions.
-    console.log("Form Submitted:", formData);
-    // You can add the logic to send the form data to the backend for processing or store it in the state.
-  };
+
+    fetch('http://localhost:5000/appointments', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ ...formData, therapistId: therapistId })
+        })
+
+
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    alert('Appointment is successful');
+                }
+            })
+    }
+    
+  
 
   return (
     <div className="mt-5 pt-20">
       <h2 className="text-2xl font-bold mb-3">Book Appointment</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-            Your Name
+      <form onSubmit={handleSubmit} className="card-body">
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Your Name</span>
           </label>
           <input
             type="text"
-            id="name"
             name="name"
             onChange={handleChange}
             value={formData.name}
             required
-            className="mt-1 p-2 w-full border rounded-md"
+            className="input input-bordered"
           />
         </div>
 
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-            Your Email
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Your Email</span>
           </label>
           <input
             type="email"
-            id="email"
             name="email"
             onChange={handleChange}
             value={formData.email}
             required
-            className="mt-1 p-2 w-full border rounded-md"
+            className="input input-bordered"
           />
         </div>
 
-        <div>
-          <label htmlFor="date" className="block text-sm font-medium text-gray-700">
-            Preferred Date
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Preferred Date</span>
           </label>
           <input
             type="date"
-            id="date"
             name="date"
             onChange={handleChange}
             value={formData.date}
             required
-            className="mt-1 p-2 w-full border rounded-md"
+            className="input input-bordered"
           />
         </div>
 
-        <div>
-          <label htmlFor="time" className="block text-sm font-medium text-gray-700">
-            Preferred Time
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Preferred Time</span>
           </label>
           <input
             type="time"
-            id="time"
             name="time"
             onChange={handleChange}
             value={formData.time}
             required
-            className="mt-1 p-2 w-full border rounded-md"
+            className="input input-bordered"
           />
         </div>
 
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
+        <div className="form-control mt-6">
+          <button className="btn btn-primary" type="submit">
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );
