@@ -1,7 +1,9 @@
 import  { useState} from "react";
 
 
-const BookAppointmentForm = ({ therapistId }) => {
+const BookAppointmentForm = ({ therapistEmail }) => {
+  console.log(therapistEmail);
+  
  // const { user } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
@@ -9,6 +11,7 @@ const BookAppointmentForm = ({ therapistId }) => {
     email: "",
     date: "",
     time: "",
+    sessionType: "live", // Default to live session
   });
 
   const handleChange = (e) => {
@@ -18,29 +21,28 @@ const BookAppointmentForm = ({ therapistId }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     fetch('http://localhost:5000/appointments', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ ...formData, therapistId: therapistId })
-        })
-
-
-            .then(res => res.json())
-            .then(data => {
-                if (data.insertedId) {
-                    alert('Appointment is successful');
-                }
-            })
-    }
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ ...formData,  therapistEmail: therapistEmail }), 
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          alert('Appointment is successful');
+        }
+      });
+  };
     
   
 
   return (
-    <div className="mt-5 pt-20">
-      <h2 className="text-2xl font-bold mb-3">Book Appointment</h2>
+    <div className="mt-16 pt-20">
+       <h2 className='text-center text-3xl font-extrabold mt-10 mb-5'>Get Your First Free Online Consultation</h2>
+      <h2 className="text-2xl font-bold mb-3 text-center">Book Appointment</h2>
       <form onSubmit={handleSubmit} className="card-body">
         <div className="form-control">
           <label className="label">
@@ -96,6 +98,34 @@ const BookAppointmentForm = ({ therapistId }) => {
             required
             className="input input-bordered"
           />
+        </div>
+        {/* Radio buttons for session type */}
+        <div className="form-control mt-4">
+          <label className="label">
+            <input
+              type="radio"
+              name="sessionType"
+              value="live"
+              checked={formData.sessionType === "live"}
+              onChange={handleChange}
+              className="radio radio-primary"
+            />
+            <span className="label-text ml-2">Live Session</span>
+          </label>
+        </div>
+
+        <div className="form-control">
+          <label className="label">
+            <input
+              type="radio"
+              name="sessionType"
+              value="message"
+              checked={formData.sessionType === "message"}
+              onChange={handleChange}
+              className="radio radio-primary"
+            />
+            <span className="label-text ml-2">Message Session</span>
+          </label>
         </div>
 
         <div className="form-control mt-6">

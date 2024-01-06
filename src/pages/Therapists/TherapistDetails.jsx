@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import BookAppointmentForm from "./BookAppointmentForm";
 
 const TherapistDetails = () => {
@@ -13,15 +13,15 @@ const TherapistDetails = () => {
       const therapist = therapists.find(
         (therapist) => therapist._id === therapistsId
       );
-      setTherapistDetail(therapist || {}); // Handle the case where therapist is not found
+      setTherapistDetail(therapist || {});
     }
   }, [therapists, therapistsId]);
 
   const { Name, Image, Specialty, Degree, Rating, email, AvailableTime } =
     therapistDetails;
 
-  // Explicitly assert that therapistsId is not undefined
-  return therapistsId ? (
+
+  return  (
     <div className="card card-compact w-180 bg-base-100 shadow-xl grid grid-cols-2 gap-4 mb-5 mt-5 ml-20 pt-20">
       <div className="card-image">
         <img src={Image} alt="Therapist" />
@@ -33,14 +33,12 @@ const TherapistDetails = () => {
         <h2 className="text-xl">Qualification: {Degree}</h2>
         <p className="text-lg font-semibold">Rating: {Rating}</p>
         <p className="text-lg font-semibold mb-5">Available Time: {AvailableTime}</p>
+       
 
-        <Link to="/bookappointment">
-          <button className="btn btn-primary">Book Appointment</button>
-        </Link>
-        <BookAppointmentForm therapistId={therapistsId} />
+        <BookAppointmentForm therapistEmail={email} />
       </div>
     </div>
-  ) : null; // Render nothing if therapistsId is undefined
+  ) 
 };
 
 export default TherapistDetails;

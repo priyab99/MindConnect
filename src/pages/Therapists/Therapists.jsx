@@ -19,6 +19,7 @@ const Therapists = () => {
 
     return (
         <div className="container mx-auto pt-20">
+            <h2 className='text-center text-3xl font-extrabold mt-10 mb-5'>Help us to find you a Therapist</h2>
             {/* Search input field */}
             <input
                 type="text"
