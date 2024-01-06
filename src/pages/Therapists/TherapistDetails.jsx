@@ -35,7 +35,7 @@ const TherapistDetails = () => {
         <p className="text-lg font-semibold mb-5">Available Time: {AvailableTime}</p>
        
 
-        <BookAppointmentForm therapistEmail={email} />
+        <BookAppointmentForm therapistEmail={email} therapistName={Name} />
       </div>
     </div>
   ) 

@@ -17,21 +17,22 @@ const MySession = () => {
   useEffect(() => {
     // Filtering appointments based on user email
     if (user.email && allAppointments.length > 0) {
-      const userAppointments = allAppointments.filter((appointment) => appointment.email === user.email);
+      const userAppointments = allAppointments.filter((appointment) => appointment.therapistEmail === user.email);
       setMySessions(userAppointments);
     }
   }, [user.email, allAppointments]);
 
   return (
     <div>
-      <h2>Your Upcoming Appointment</h2>
+      <h2>My Upcoming Appointment</h2>
       <ul>
         {mySessions.map((session) => (
           <li key={session._id}>
             <p>Date: {session.date}</p>
             <p>Time: {session.time}</p>
             <p>Session Type: {session.sessionType}</p>
-            <p>Therapist Name: {session.therapistName}</p>
+            <p>Patient Name: {session.name}</p>
+            <p>Patient email: {session.email}</p>
           </li>
         ))}
       </ul>

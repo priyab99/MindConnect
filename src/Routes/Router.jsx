@@ -9,6 +9,8 @@ import Dashboard from "../Layout/Dashboard";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import Therapists from "../pages/Therapists/Therapists"
 import TherapistDetails from "../pages/Therapists/TherapistDetails";
+import MySession from "../pages/Dashboard/MySession/MySession";
+import Appointment from "../pages/Dashboard/Appointment/Appointment";
 
  export const router = createBrowserRouter([
     {
@@ -48,6 +50,14 @@ import TherapistDetails from "../pages/Therapists/TherapistDetails";
           path:'allusers',
           element:<AllUsers></AllUsers>
        },
+       {
+        path:'mysession',
+        element:<MySession></MySession>
+     },
+     {
+      path: 'myappointment',
+      element: <Appointment></Appointment>
+     }
       ]
     }
   ]);

@@ -1,7 +1,7 @@
 import  { useState} from "react";
 
 
-const BookAppointmentForm = ({ therapistEmail }) => {
+const BookAppointmentForm = ({ therapistEmail ,therapistName}) => {
   console.log(therapistEmail);
   
  // const { user } = useContext(AuthContext);
@@ -27,7 +27,7 @@ const BookAppointmentForm = ({ therapistEmail }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ ...formData,  therapistEmail: therapistEmail }), 
+      body: JSON.stringify({ ...formData,  therapistEmail: therapistEmail, therapistName: therapistName }), 
     })
       .then((res) => res.json())
       .then((data) => {

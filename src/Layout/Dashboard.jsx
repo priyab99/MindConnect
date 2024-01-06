@@ -34,7 +34,7 @@ const Dashboard = () => {
             ): isTherapist ? (
                 <>
                   <li>
-                      My Session
+                     <Link to="/dashboard/myappointment">Appointment</Link>
                   </li>
                   <li>
                     Student Records
@@ -43,7 +43,7 @@ const Dashboard = () => {
               )  : (
               <>
                 <li>
-                  My Session
+                  <Link to="/dashboard/mysession">My Session</Link>
                 </li>
                 <li>
                   My schedule
