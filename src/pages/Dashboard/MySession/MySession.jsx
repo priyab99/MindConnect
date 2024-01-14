@@ -1,10 +1,13 @@
-import  { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import Chat from "../../Chat/Chat";
 
 const MySession = () => {
-    const {user}=useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   const [allAppointments, setAllAppointments] = useState([]);
   const [mySessions, setMySessions] = useState([]);
+  const [otherUser, setOtherUser] = useState(null);
+  const [isChatStarted, setIsChatStarted] = useState(false);
 
   useEffect(() => {
     // Fetching all appointments
@@ -16,11 +19,25 @@ const MySession = () => {
 
   useEffect(() => {
     // Filtering appointments based on user email
-    if (user.email && allAppointments.length > 0) {
+    if (user?.email && allAppointments.length > 0) {
       const userAppointments = allAppointments.filter((appointment) => appointment.email === user.email);
       setMySessions(userAppointments);
+      // If there is a therapist in the appointment, set them as the otherUser
+      const therapistAppointment = userAppointments.find((appointment) => appointment.therapistEmail);
+      if (therapistAppointment) {
+        setOtherUser({
+          uid: therapistAppointment.therapistEmail, // Use therapist's email as a unique identifier
+          email: therapistAppointment.therapistEmail,
+          name: therapistAppointment.therapistName, // Add any other relevant details about the therapist
+        });
+      }
+
     }
-  }, [user.email, allAppointments]);
+  }, [user?.email, allAppointments]);
+
+  const handleStartChat = () => {
+    setIsChatStarted(true);
+  };
 
   return (
     <div>
@@ -35,6 +52,10 @@ const MySession = () => {
           </li>
         ))}
       </ul>
+      <button className="btn btn-primary" onClick={handleStartChat} disabled={isChatStarted}>
+        Start Message Session
+      </button>
+      {isChatStarted && otherUser && <Chat currentUser={user} otherUser={otherUser} />}
     </div>
   );
 };

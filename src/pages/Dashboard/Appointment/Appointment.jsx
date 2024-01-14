@@ -1,10 +1,14 @@
 import  { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import Chat from "../../Chat/Chat";
 
-const MySession = () => {
+const Appointment = () => {
     const {user}=useContext(AuthContext)
   const [allAppointments, setAllAppointments] = useState([]);
   const [mySessions, setMySessions] = useState([]);
+  const [otherUser, setOtherUser] = useState(null);
+  const [isChatStarted, setIsChatStarted] = useState(false);
+  
 
   useEffect(() => {
     // Fetching all appointments
@@ -16,11 +20,24 @@ const MySession = () => {
 
   useEffect(() => {
     // Filtering appointments based on user email
-    if (user.email && allAppointments.length > 0) {
+    if (user?.email && allAppointments.length > 0) {
       const userAppointments = allAppointments.filter((appointment) => appointment.therapistEmail === user.email);
       setMySessions(userAppointments);
+        // If there is a patient in the appointment, set them as the otherUser
+        const patientAppointment = userAppointments.find((appointment) => appointment.email);
+        if (patientAppointment) {
+          setOtherUser({
+            uid: patientAppointment.email, // Use therapist's email as a unique identifier
+            email: patientAppointment.email,
+            name: patientAppointment.name, // Add any other relevant details about the therapist
+          });
+        }
     }
-  }, [user.email, allAppointments]);
+  }, [user?.email, allAppointments]);
+
+  const handleStartChat = () => {
+    setIsChatStarted(true);
+  };
 
   return (
     <div>
@@ -36,8 +53,12 @@ const MySession = () => {
           </li>
         ))}
       </ul>
+      <button className="btn btn-primary" onClick={handleStartChat} disabled={isChatStarted}>
+        Start Message Session
+      </button>
+      {isChatStarted && otherUser && <Chat currentUser={user} otherUser={otherUser} />}
     </div>
   );
 };
 
-export default MySession;
+export default Appointment;
