@@ -37,6 +37,7 @@ const Therapists = () => {
                             <figure><img src={therapist.Image} alt={therapist.Name} /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{therapist.Name}</h2>
+                                <h2 className="card-title">{therapist.Specialty}</h2>
                                 <div className="card-actions justify-end">
                                    <Link to={`/therapists/${therapist._id}`} > <button className="btn btn-primary">View Profile</button></Link>
                                 </div>

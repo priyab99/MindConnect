@@ -11,6 +11,7 @@ import Therapists from "../pages/Therapists/Therapists"
 import TherapistDetails from "../pages/Therapists/TherapistDetails";
 import MySession from "../pages/Dashboard/MySession/MySession";
 import Appointment from "../pages/Dashboard/Appointment/Appointment";
+import Payment from "../pages/Payment/Payment";
 
  export const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ import Appointment from "../pages/Dashboard/Appointment/Appointment";
         {
           path: '/therapists',
           element:<Therapists></Therapists>,
+        },
+        {
+          path: '/payment',
+          element:<Payment></Payment>,
         },
         {
           path: '/therapists/:therapistsId',

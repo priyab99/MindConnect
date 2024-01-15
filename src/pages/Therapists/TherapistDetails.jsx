@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import BookAppointmentForm from "./BookAppointmentForm";
 
 const TherapistDetails = () => {
@@ -17,7 +17,7 @@ const TherapistDetails = () => {
     }
   }, [therapists, therapistsId]);
 
-  const { Name, Image, Specialty, Degree, Rating, email, AvailableTime } =
+  const { Name, Image, Specialty, Degree, Rating, email, AvailableTime,Price } =
     therapistDetails;
 
 
@@ -33,6 +33,12 @@ const TherapistDetails = () => {
         <h2 className="text-xl">Qualification: {Degree}</h2>
         <p className="text-lg font-semibold">Rating: {Rating}</p>
         <p className="text-lg font-semibold mb-5">Available Time: {AvailableTime}</p>
+        <p className="text-lg font-semibold">Price: {Price} TK</p>
+
+        <Link to={`/payment?price=${Price}`}>
+  <button className="btn btn-primary">Book Now</button>
+</Link>
+
        
 
         <BookAppointmentForm therapistEmail={email} therapistName={Name} />

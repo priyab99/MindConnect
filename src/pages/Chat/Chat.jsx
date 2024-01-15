@@ -30,9 +30,9 @@ const Chat = ({ currentUser, otherUser }) => {
   
   useEffect(() => {
     const unsubscribe = onSnapshot(finalQuery, (snapshot) => {
-      console.log("Snapshot received:", snapshot.docs);
+  
       const messagesData = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      console.log("Messages Data:", messagesData);
+
       setMessages(messagesData);
     });
   
