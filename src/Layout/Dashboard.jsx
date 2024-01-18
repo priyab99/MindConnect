@@ -37,7 +37,7 @@ const Dashboard = () => {
                      <Link to="/dashboard/myappointment">Appointment</Link>
                   </li>
                   <li>
-                    Student Records
+                    Student Progress
                   </li>
                 </>
               )  : (

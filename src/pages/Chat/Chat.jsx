@@ -59,7 +59,7 @@ const Chat = ({ currentUser, otherUser }) => {
         {messages.map((message) => (
           <div key={message.id}>
           <p>{message.senderId === currentUser.uid ? 'You: ' : `${otherUser.name || 'Other User'}: `}{message.content}</p>
-          {/* Add timestamp if needed */}
+          {/* Adding timestamp if needed */}
         </div>
         ))}
       </div>
