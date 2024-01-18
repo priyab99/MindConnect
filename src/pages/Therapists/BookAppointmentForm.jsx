@@ -41,9 +41,8 @@ const BookAppointmentForm = ({ therapistEmail ,therapistName, price}) => {
   
 
   return (
-    <div className="mt-16 pt-20">
-       <h2 className='text-center text-3xl font-extrabold mt-10 mb-5'>Get Your First Free Online Consultation</h2>
-      <h2 className="text-2xl font-bold mb-3 text-center">Book Appointment</h2>
+    <div className="mt-4">
+      <h2 className="text-2xl font-bold mb-5 text-center">Book Appointment</h2>
       <form onSubmit={handleSubmit} className="card-body">
         <div className="form-control">
           <label className="label">

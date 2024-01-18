@@ -8,6 +8,8 @@ const Appointment = () => {
   const [mySessions, setMySessions] = useState([]);
   const [otherUser, setOtherUser] = useState(null);
   const [isChatStarted, setIsChatStarted] = useState(false);
+  const [payments, setAllPayment]=useState([]);
+  const [myPayment, setMyPayment]=useState([]);
   
 
   useEffect(() => {
@@ -19,17 +21,34 @@ const Appointment = () => {
   }, []);
 
   useEffect(() => {
+    // Fetching all payments
+    fetch('http://localhost:5000/payment')  
+      .then((res) => res.json())
+      .then((data) => setAllPayment(data))
+      .catch((error) => console.error('Error fetching payments:', error));
+  }, []);
+  
+  useEffect(()=>{
+    if (user?.email && payments.length > 0) {
+      const userPayment = payments.filter((payment) => payment.therapistEmail === user.email);
+      setMyPayment(userPayment);
+    }
+
+  },[user?.email, payments])
+
+
+  useEffect(() => {
     // Filtering appointments based on user email
     if (user?.email && allAppointments.length > 0) {
       const userAppointments = allAppointments.filter((appointment) => appointment.therapistEmail === user.email);
       setMySessions(userAppointments);
-        // If there is a patient in the appointment, set them as the otherUser
+        // If there is a patient in the appointment, setting them as the otherUser
         const patientAppointment = userAppointments.find((appointment) => appointment.email);
         if (patientAppointment) {
           setOtherUser({
-            uid: patientAppointment.email, // Use therapist's email as a unique identifier
+            uid: patientAppointment.email, // Using therapist's email as a unique identifier
             email: patientAppointment.email,
-            name: patientAppointment.name, // Add any other relevant details about the therapist
+            name: patientAppointment.name, // Adding any other relevant details about the therapist
           });
         }
     }
@@ -41,8 +60,10 @@ const Appointment = () => {
 
   return (
     <div>
-      <h2>My Upcoming Appointment</h2>
-      <ul>
+    {myPayment.length > 0 ? (
+      <>
+        <h2 className="text-2xl font-bold">Your Upcoming Appointment</h2>
+        <ul>
         {mySessions.map((session) => (
           <li key={session._id}>
             <p>Date: {session.date}</p>
@@ -53,11 +74,15 @@ const Appointment = () => {
           </li>
         ))}
       </ul>
-      <button className="btn btn-primary" onClick={handleStartChat} disabled={isChatStarted}>
+      <button className="btn btn-primary mt-3" onClick={handleStartChat} disabled={isChatStarted}>
         Start Message Session
       </button>
       {isChatStarted && otherUser && <Chat currentUser={user} otherUser={otherUser} />}
-    </div>
+      </>
+    ) : (
+      <p>No upcoming appointments.</p>
+    )}
+  </div>
   );
 };
 

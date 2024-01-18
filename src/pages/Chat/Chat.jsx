@@ -42,14 +42,16 @@ const Chat = ({ currentUser, otherUser }) => {
   
 
   const sendMessage = async () => {
-    // Add a new message to Firestore
-    // Ensure you have senderId, receiverId, content, and timestamp
-    // You can use server timestamp for the timestamp
-    const timestamp = serverTimestamp();
-     const newMessageData = { senderId: currentUser.uid, receiverId: otherUser.uid, content: newMessage, timestamp };
-    await addDoc(messagesRef, newMessageData);
-    setNewMessage("");
-  };
+    try {
+        const timestamp = serverTimestamp();
+        const newMessageData = { senderId: currentUser.uid, receiverId: otherUser.uid, content: newMessage, timestamp };
+        await addDoc(messagesRef, newMessageData);
+        setNewMessage("");
+    } catch (error) {
+        console.error("Error sending message:", error);
+    }
+};
+
 
   return (
     <div>

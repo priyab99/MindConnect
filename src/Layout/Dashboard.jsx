@@ -46,9 +46,6 @@ const Dashboard = () => {
                   <Link to="/dashboard/mysession">My Session</Link>
                 </li>
                 <li>
-                  My schedule
-                </li>
-                <li>
                   Pending work
                 </li>
               </>
