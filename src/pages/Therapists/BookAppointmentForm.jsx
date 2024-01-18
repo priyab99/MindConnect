@@ -1,8 +1,8 @@
 import  { useState} from "react";
 
 
-const BookAppointmentForm = ({ therapistEmail ,therapistName}) => {
-  console.log(therapistEmail);
+const BookAppointmentForm = ({ therapistEmail ,therapistName, price}) => {
+  console.log("Price in bookappointment component:", price);
   
  // const { user } = useContext(AuthContext);
 
@@ -32,7 +32,8 @@ const BookAppointmentForm = ({ therapistEmail ,therapistName}) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          alert('Appointment is successful');
+          alert('To complete the appointment proceed to pay');
+          window.location.href = `/payment?price=${price}&therapistEmail=${therapistEmail}`;
         }
       });
   };
@@ -129,7 +130,7 @@ const BookAppointmentForm = ({ therapistEmail ,therapistName}) => {
         </div>
 
         <div className="form-control mt-6">
-          <button className="btn btn-primary" type="submit">
+            <button className="btn btn-primary" type="submit">
             Submit
           </button>
         </div>

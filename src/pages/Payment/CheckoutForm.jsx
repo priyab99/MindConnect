@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from 'sweetalert2'
 
-const CheckoutForm = ({price}) => {
+const CheckoutForm = ({price,therapistEmail}) => {
     const [cardError, setCardError] = useState('')
     const stripe= useStripe();
     const elements=useElements();
@@ -80,12 +81,21 @@ const CheckoutForm = ({price}) => {
     email: user?.email, 
     transactionId,
     price,
+    therapistEmail: therapistEmail
 }
 axiosSecure.post('/payment',payment)
 .then(res=>{
     console.log(res.data);
     if(res.data.insertedId){
-        //display
+      Swal.fire({
+        title: 'Payment Successful',
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
+      });
     }
 })
   }
