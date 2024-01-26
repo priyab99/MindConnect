@@ -22,7 +22,7 @@ const BookAppointmentForm = ({ therapistEmail ,therapistName, price}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
   
-    fetch('http://localhost:5000/appointments', {
+    fetch('https://mind-connect-server.vercel.app/appointments', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

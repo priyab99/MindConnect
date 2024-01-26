@@ -40,7 +40,7 @@ const AuthProvider = ({children}) => {
 
              if(currentUser){
                 //getting and setting token
-            axios.post('http://localhost:5000/jwt',{
+            axios.post('https://mind-connect-server.vercel.app/jwt',{
                email: currentUser.email
             })
             .then(data=>{

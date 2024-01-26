@@ -6,7 +6,7 @@ const Therapists = () => {
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5000/therapists')
+        fetch('https://mind-connect-server.vercel.app/therapists')
             .then(res => res.json())
             .then(data => setTherapists(data))
             .catch(error => console.error('Error fetching therapists:', error));

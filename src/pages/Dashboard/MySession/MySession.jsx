@@ -14,7 +14,7 @@ const MySession = () => {
 
   useEffect(() => {
     // Fetching all appointments
-    fetch('http://localhost:5000/appointments')
+    fetch('https://mind-connect-server.vercel.app/appointments')
       .then((res) => res.json())
       .then((data) => setAllAppointments(data))
       .catch((error) => console.error('Error fetching appointments:', error));
@@ -23,7 +23,7 @@ const MySession = () => {
   
   useEffect(() => {
     // Fetching all payments
-    fetch('http://localhost:5000/payment')  
+    fetch('https://mind-connect-server.vercel.app/payment')  
       .then((res) => res.json())
       .then((data) => setAllPayment(data))
       .catch((error) => console.error('Error fetching payments:', error));

@@ -7,7 +7,7 @@ const MyProgress = () => {
   const [myProgress, setMyProgress] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/progress')
+    fetch('https://mind-connect-server.vercel.app/progress')
       .then((res) => res.json())
       .then((data) => setProgress(data))
       .catch((error) => console.error('Error fetching appointments:', error));

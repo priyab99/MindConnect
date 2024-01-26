@@ -15,7 +15,7 @@ const FeedbackForm = ({ patientEmail }) => {
 
     // Send progress and feedback data to the server
     try {
-      const response = await fetch(`http://localhost:5000/progress`, {
+      const response = await fetch(`https://mind-connect-server.vercel.app/progress`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -56,7 +56,7 @@ const FeedbackForm = ({ patientEmail }) => {
       {errors.notes && <p className="text-danger">{errors.notes.message}</p>}
     </div>
 
-    <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Submit Feedback</button>
+    <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mb-6">Submit Feedback</button>
   </form>
   );
 };

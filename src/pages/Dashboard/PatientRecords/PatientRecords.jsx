@@ -22,7 +22,7 @@ const PatientRecords = () => {
 
     useEffect(() => {
         // Fetching all appointments
-        fetch('http://localhost:5000/appointments')
+        fetch('https://mind-connect-server.vercel.app/appointments')
             .then((res) => res.json())
             .then((data) => setAllAppointments(data))
             .catch((error) => console.error('Error fetching appointments:', error));
@@ -73,7 +73,7 @@ const PatientRecords = () => {
         <div className="feedback-form-container"> {/* Add a container for the form */}
           <h2 className="text-lg font-medium">Give Feedback</h2>
           <FeedbackForm patientEmail={selectedPatientEmail} />
-          <button className="btn btn-secondary" onClick={handleModalClose}>Close</button>
+          <button className="btn btn-secondary rounded" onClick={handleModalClose}>Close</button>
         </div>
       )}
               

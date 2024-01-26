@@ -53,7 +53,7 @@ import MyProgress from "../pages/Dashboard/MyProgress/MyProgress";
         {
           path: '/therapists/:therapistsId',
           element:<TherapistDetails></TherapistDetails>,
-          loader:()=>fetch("http://localhost:5000/therapists")
+          loader:()=>fetch("https://mind-connect-server.vercel.app/therapists")
         },
        
     
