@@ -12,6 +12,10 @@ import TherapistDetails from "../pages/Therapists/TherapistDetails";
 import MySession from "../pages/Dashboard/MySession/MySession";
 import Appointment from "../pages/Dashboard/Appointment/Appointment";
 import Payment from "../pages/Payment/Payment";
+import ContactUs from "../pages/Home/ContactUs";
+import AboutUs from "../pages/Home/AboutUs";
+import PatientRecords from "../pages/Dashboard/PatientRecords/PatientRecords";
+import MyProgress from "../pages/Dashboard/MyProgress/MyProgress";
 
  export const router = createBrowserRouter([
     {
@@ -21,6 +25,14 @@ import Payment from "../pages/Payment/Payment";
         {
             path: "/",
             element: <Home></Home>
+        },
+        {
+          path: "/contactus",
+          element: <ContactUs></ContactUs>
+        },
+        {
+          path: "/aboutus",
+          element: <AboutUs></AboutUs>
         },
         {
             path:"/login",
@@ -60,9 +72,18 @@ import Payment from "../pages/Payment/Payment";
         element:<MySession></MySession>
      },
      {
+      path:'myprogress',
+      element:<MyProgress></MyProgress>
+   },
+   
+     {
       path: 'myappointment',
       element: <Appointment></Appointment>
-     }
+     },
+     {
+      path: 'patientsrecords',
+      element: <PatientRecords></PatientRecords>
+     },
       ]
     }
   ]);

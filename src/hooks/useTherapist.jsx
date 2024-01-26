@@ -15,7 +15,7 @@ const useTherapist=()=>{
                 return res.data.therapist;
               } catch (error) {
                 console.error('Error fetching therapist data:', error);
-                throw error; // Rethrow the error to be handled by React Query
+                throw error; // Rethrowing the error to be handled by React Query
               }
         }
     })

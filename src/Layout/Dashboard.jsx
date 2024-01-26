@@ -28,7 +28,7 @@ const Dashboard = () => {
                   <Link to="/dashboard/allusers">Manage Users</Link>
                 </li>
                 <li>
-                  <Link to="/dashboard/approvesessions">Approve Sessions</Link>
+                  <Link to="/dashboard/approvesessions">Appove Thrapist</Link>
                 </li>
               </>
             ): isTherapist ? (
@@ -37,7 +37,8 @@ const Dashboard = () => {
                      <Link to="/dashboard/myappointment">Appointment</Link>
                   </li>
                   <li>
-                    Student Progress
+                    <Link to="/dashboard/patientsrecords">Patient Records</Link>
+          
                   </li>
                 </>
               )  : (
@@ -46,7 +47,7 @@ const Dashboard = () => {
                   <Link to="/dashboard/mysession">My Session</Link>
                 </li>
                 <li>
-                  Pending work
+                  <Link to="/dashboard/myprogress">My Progress</Link>
                 </li>
               </>
             )}

@@ -39,7 +39,7 @@ const AuthProvider = ({children}) => {
              console.log('current user', currentUser)
 
              if(currentUser){
-                //get and set token
+                //getting and setting token
             axios.post('http://localhost:5000/jwt',{
                email: currentUser.email
             })
