@@ -18,7 +18,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar fixed z-20 bg-opacity-30 max-w-screen-xl bg-black text-white">
+            <div className="navbar fixed z-20 bg-opacity-30 max-w-screen-xl bg-black  text-gray-800">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -42,10 +42,10 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">MindConnect</a>
+                    <a className="btn btn-ghost normal-case font-bold text-2xl">MindConnect</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu menu-horizontal px-1  text-base">
                         <li><Link to='/'>Home</Link></li>
 
                         <li><Link to="/aboutus">About Us</Link></li>
@@ -62,7 +62,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user ? <> <button onClick={handleLogOut} className="btn btn-outline text-white">Logout</button></> : <><button className="btn btn-outline text-white"><Link to='/login'>Login</Link></button></>
+                        user ? <> <button onClick={handleLogOut} className="btn btn-outline text-gray-800">Logout</button></> : <><button className="btn btn-outline text-gray-800"><Link to='/login'>Login</Link></button></>
                     }
 
                 </div>

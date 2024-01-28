@@ -22,7 +22,7 @@ const MyProgress = () => {
 
   return (
     <div>
-    <h1 className="text-2xl font-bold">My Progress</h1>
+    <h1 className="text-2xl font-bold mb-5">My Progress</h1>
     <ul>
       {myProgress.map((p) => (
         <li key={p._id}>

@@ -1,50 +1,99 @@
-
-
 const Sectionone = () => {
-    return (
-        <div className="display: flex; justify-content: space-between;">
-            <div className="card" >
-           <figure className="px-10 pt-10">
-             <img src="https://img.freepik.com/free-vector/hand-drawn-mental-health-instagram-stories-collection_23-2149049906.jpg?w=900&t=st=1695046169~exp=1695046769~hmac=c825d8649141d65a13916b6c9c8438ef4b7242abf7f8759fa676bbfee4b4351a" alt="Shoes" className="rounded-xl w-11/12" />
-           </figure>
-           <div className="card-body items-center text-center">
-             <h2 className="card-title text-5xl font-extrabold">Health</h2>
-             <p>Mental Health Going Back Again</p>
-             <div className="card-actions">
-               <button className="btn btn-outline text-white">Learn More </button>
-             </div>
-           </div>
-           </div>
-             <div className="card">
-           <figure className="px-10 pt-10">
-             <img src="https://img.freepik.com/free-vector/medical-prescription-concept-illustration_114360-6755.jpg?w=740&t=st=1695046023~exp=1695046623~hmac=fc6be075fdfb90b8385d7ea04238d61f543d33aa55a287da0982f9b43274a58f" alt="" className="rounded-xl w-11/12" />
-           </figure>
-           <div className="card-body items-center text-center">
-             <h2 className="card-title text-5xl font-extrabold">Wellness</h2>
-             <p>Live Consultation Scheduling</p>
-             <div className="card-actions">
-               <button className="btn btn-outline text-white">Learn More </button>
-             </div>
-           </div>
-           </div>
-           
-           
+  return (
+    <div>
+      <div className="text-center mt-8">
+        <h2 className="text-4xl font-extrabold">WHAT WE DO</h2>
+        <p className="text-gray-600">
+          The Importance Of Self-Care And Setting Healthy Boundaries
+        </p>
+      </div>
 
-           <div className="card" >
-           <figure className="px-10 pt-10">
-             <img src="https://img.freepik.com/free-vector/hospital-doctors-reception-composition_1284-65034.jpg?w=900&t=st=1695045520~exp=1695046120~hmac=e3b05a08734c2bb7b84d66a73402d9b3881ecdf29aa9aac41e5ea0a396c24111" alt="Shoes" className="rounded-xl w-11/12" />
-           </figure>
-           <div className="card-body items-center text-center">
-             <h2 className="card-title text-5xl font-extrabold">Psychiatrist</h2>
-             <p>Psychiatrist People Work Agency</p>
-             <div className="card-actions">
-               <button className="btn btn-outline text-white">Learn More </button>
-             </div>
-           </div>
-           </div>
-          
-         </div>
-    );
+      <div className="grid grid-cols-3 md:grid-cols-3 sm:grid-cols-1 justify-between space-x-6 p-8">
+        <div className="card max-w-[400px]">
+          <figure>
+            <img
+              src="https://img.freepik.com/free-photo/caring-african-american-woman-consoling-sad-woman-before-group-therapy-meeting_637285-10049.jpg?size=626&ext=jpg&ga=GA1.1.928138083.1680619194&semt=ais"
+              alt="Health"
+              className="rounded-xl w-full"
+            />
+          </figure>
+          <div className="card-body text-center mt-4">
+            <h2 className="text-2xl font-bold">Health</h2>
+            <p className="text-gray-600">Mental Health Going Back Again</p>
+            <div className="mt-4">
+              <button className="btn btn-outline">Learn More</button>
+            </div>
+          </div>
+        </div>
+
+        <div className="card max-w-[400px]">
+          <figure>
+            <img
+              src="https://img.freepik.com/free-photo/happy-pretty-woman-spreading-hands-walking-park_1262-20236.jpg?size=626&ext=jpg&ga=GA1.1.928138083.1680619194&semt=ais"
+              alt="Wellness"
+              className="rounded-xl w-full"
+            />
+          </figure>
+          <div className="card-body text-center mt-4">
+            <h2 className="text-2xl font-bold">Wellness</h2>
+            <p className="text-gray-600">Live Consultation Scheduling</p>
+            <div className="mt-4">
+              <button className="btn btn-outline">Learn More</button>
+            </div>
+          </div>
+        </div>
+
+        <div className="card max-w-[400px]">
+          <figure>
+            <img
+              src="https://img.freepik.com/free-photo/front-view-psychologist-consulting-patient_23-2148567359.jpg?size=626&ext=jpg&ga=GA1.1.928138083.1680619194&semt=ais"
+              className="rounded-xl w-full"
+            />
+          </figure>
+          <div className="card-body text-center mt-4">
+            <h2 className="text-2xl font-bold">Psychiatrist</h2>
+            <p className="text-gray-600">Psychiatrist People Work Agency</p>
+            <div className="mt-4">
+              <button className="btn btn-outline">Learn More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div className='container text-center mx-auto p-10'>
+            <h4 className='text-4xl font-extrabold'>Why Choose Us</h4>
+            <h1 className='text-gray-600 mb-5'>We Managing Depression Through Therapy And Lifestyle Changes</h1>
+
+            <div className='flex justify-center items-center gap-5'>
+                <div className='w-1/2'>
+                    <div className='bg-slate-100 mb-5 p-5 rounded-lg'>
+                        <p className='font-bold text-black'>
+Scheduling</p>
+                        <p className='text-gray-700'>
+                            Proin nec eleifend augue. Praesent nec feugiat mauris. Duis ac lacus non lacus malesuada semper. Morbi odio nulla, consequat et sapien ut, euismod cursus magna.
+                        </p>
+                    </div>
+                    <div className='bg-slate-100 mb-5 p-5 rounded-lg'>
+                        <p className='font-bold text-black'>Relaxing</p>
+                        <p className='text-gray-700'>
+                            Proin nec eleifend augue. Praesent nec feugiat mauris. Duis ac lacus non lacus malesuada semper. Morbi odio nulla, consequat et sapien ut, euismod cursus magna.
+                        </p>
+                    </div>
+                    <div className='bg-slate-100 p-5 rounded-lg'>
+                        <p className='font-bold text-black'>Progress Check</p>
+                        <p className='text-gray-700'>
+                            Proin nec eleifend augue. Praesent nec feugiat mauris. Duis ac lacus non lacus malesuada semper. Morbi odio nulla, consequat et sapien ut, euismod cursus magna.
+                        </p>
+                    </div>
+                </div>
+                <div className='w-1/2'>
+                    <img width={500} height={700} src="https://img.freepik.com/free-photo/mental-health-care-sketch-diagram_53876-128059.jpg?size=626&ext=jpg&ga=GA1.1.928138083.1680619194&semt=ais" alt=""/>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  );
 };
 
 export default Sectionone;

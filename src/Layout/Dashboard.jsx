@@ -1,7 +1,11 @@
 import { Link, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useTherapist from "../hooks/useTherapist";
-
+import { RiUserSettingsFill } from "react-icons/ri";
+import { FaRegMessage } from "react-icons/fa6";
+import { FcApprove } from "react-icons/fc";
+import { CiViewTable } from "react-icons/ci";
+import { GiProgression } from "react-icons/gi";
 
 const Dashboard = () => {
 
@@ -25,29 +29,36 @@ const Dashboard = () => {
               <>
               
                 <li>
-                  <Link to="/dashboard/allusers">Manage Users</Link>
+                
+                  <Link to="/dashboard/allusers"><RiUserSettingsFill/>Manage Users</Link>
                 </li>
                 <li>
-                  <Link to="/dashboard/approvesessions">Appove Thrapist</Link>
+               
+                  <Link to="/dashboard/approvesessions"> <FcApprove />Appove Therapist</Link>
                 </li>
               </>
             ): isTherapist ? (
                 <>
                   <li>
-                     <Link to="/dashboard/myappointment">Appointment</Link>
+                 
+                     <Link to="/dashboard/myappointment"> <FaRegMessage />Appointment</Link>
                   </li>
                   <li>
-                    <Link to="/dashboard/patientsrecords">Patient Records</Link>
+                 
+
+                    <Link to="/dashboard/patientsrecords"> <CiViewTable />Patient Records</Link>
           
                   </li>
                 </>
               )  : (
               <>
                 <li>
-                  <Link to="/dashboard/mysession">My Session</Link>
+               
+                  <Link to="/dashboard/mysession"> <FaRegMessage />My Session</Link> 
                 </li>
                 <li>
-                  <Link to="/dashboard/myprogress">My Progress</Link>
+               
+                  <Link to="/dashboard/myprogress"> <GiProgression />My Progress</Link>
                 </li>
               </>
             )}

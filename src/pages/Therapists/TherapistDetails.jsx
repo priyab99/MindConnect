@@ -22,7 +22,7 @@ const TherapistDetails = () => {
 
 
   return  (
-    <div className="card card-compact w-180 bg-base-100 shadow-xl grid grid-cols-2 gap-4 mb-5 mt-6 ml-20 pt-20">
+    <div className="card card-compact w-180 bg-base-100 shadow-xl grid grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4 mb-5 mt-6 ml-20 pt-20">
      
       <div className="card-image">
         <img src={Image} alt="Therapist" />

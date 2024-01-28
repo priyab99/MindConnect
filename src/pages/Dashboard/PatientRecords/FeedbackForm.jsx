@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import Swal from 'sweetalert2'
 
 const FeedbackForm = ({ patientEmail }) => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -22,7 +23,15 @@ const FeedbackForm = ({ patientEmail }) => {
       });
 
       if (response.ok) {
-        alert('Feedback successful');
+        Swal.fire({
+          title: 'Feedback given successfully',
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          }
+        });
       } else {
         console.error('Error submitting feedback:', response.statusText);
       }
