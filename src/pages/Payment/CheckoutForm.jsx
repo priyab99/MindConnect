@@ -76,7 +76,7 @@ const CheckoutForm = ({price,therapistEmail}) => {
   if(paymentIntent.status === 'succeeded'){
     setTransactionId(paymentIntent.id);
     const transactionId=paymentIntent.id;
-   //save payment information to the server
+   //saving payment information to the server
    const payment={
     email: user?.email, 
     transactionId,
