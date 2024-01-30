@@ -1,0 +1,29 @@
+.about-us-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .about-us-title {
+    color: #2C3E50;
+    margin-bottom: 20px;
+  }
+  
+  .about-us-image {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+  
+  .about-us-text, .about-us-section {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .about-us-section h2 {
+    color: #2980B9;
+  }
+  
+  .about-us-section p {
+    color: #34495E;
+  }
+  
